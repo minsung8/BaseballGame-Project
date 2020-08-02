@@ -9,7 +9,7 @@ public class BaseballGame_Main {
 
 		Scanner sc = new Scanner(System.in);
 		PlayerManage playermanage = new PlayerManage();
-		
+
 		while (true) {
 			System.out.println("1. 회원가입");
 			System.out.println("2. 로그인");
@@ -36,7 +36,16 @@ public class BaseballGame_Main {
 							break;
 						} else if (temp_arr[i].getId().equals(temp_id) && temp_arr[i].getPwd().equals(temp_pwd)) {
 								System.out.println("환영합니다.");
-								PlayGame playgame = new PlayGame();
+								System.out.println("1. 게임시작");
+								System.out.println("2. 기록확인");
+								
+								String temp2 = sc.next();
+								if (temp2.equals("1")) {
+									PlayGame playgame = new PlayGame(temp_arr[i]);
+									playgame.playgame(temp_arr[i]);
+								} else if (temp2.equals("2")) {
+									playermanage.prn_record();
+								}
 								break;
 						} else {
 							continue;
@@ -49,7 +58,8 @@ public class BaseballGame_Main {
 			} else if (temp.equals("3")) {
 				System.out.println("안녕히가세요");
 				break;
-			}
+			} 
+			
 		}
 			
 	}
