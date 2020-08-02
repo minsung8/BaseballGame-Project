@@ -5,18 +5,21 @@ import java.util.List;
 
 public class PlayerManage {
 	
-	List<Player> list = new ArrayList<Player>();		// 플레이어 객체 리스트 
+	Player[] player_arr = new Player[1000];		// 플레이어 객체 리스트 
 
-	public List<Player> getList() {
-		return list;
+	public Player[] getArr() {
+		return player_arr;
 	}
 
 	public void setPlayer(Player p) {
-		list.add(p);
+		
+		for (int i=0; i<player_arr.length; i++) {
+			if (player_arr[i]==null) {
+				player_arr[i] = p;
+				break;
+			}
+		}
+		
 	}
-
-
-	
-	
 	
 }
